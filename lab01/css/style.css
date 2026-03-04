@@ -4,7 +4,7 @@ html, body {
 }
 
 html {
-    overflow-y: scroll; /* always reserve space for scrollbar to avoid layout shift */
+    overflow-y: scroll;
 }
 
 body {
@@ -47,7 +47,7 @@ form {
     margin: 10px 0;
 }
 
-/* Navigation bar styling */
+/* nav bar */
 #main-nav {
     width: 30%;
     margin: 10px auto;

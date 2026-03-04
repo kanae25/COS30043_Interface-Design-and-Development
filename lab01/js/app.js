@@ -26,8 +26,6 @@ document.addEventListener('DOMContentLoaded', function () {
             showPage(page || 'checkout');
         });
     });
-
-    // initial view: Checkout (with form)
     showPage('checkout');
 });
 
