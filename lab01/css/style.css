@@ -1,3 +1,13 @@
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+}
+
 #wai_logo {
     display: block;
     margin: 20px auto;
@@ -7,6 +17,16 @@
 h1 {
     text-align: center;
     color: #161E54;
+}
+
+footer {
+    margin-top: 50px;
+    text-align: center;
+    font-size: 0.9em;
+    color: white;
+    background-color: black;
+    padding: 20px 0;
+    width: 100%;
 }
 
 form {
