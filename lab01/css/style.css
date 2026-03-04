@@ -3,6 +3,10 @@ html, body {
     margin: 0;
 }
 
+html {
+    overflow-y: scroll; /* always reserve space for scrollbar to avoid layout shift */
+}
+
 body {
     display: flex;
     flex-direction: column;
