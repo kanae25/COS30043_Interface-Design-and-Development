@@ -44,6 +44,70 @@ h1 {
     line-height: 1.6;
 }
 
+#about-content1 {
+    width: 40%;
+    margin: 20px auto;
+    display: none; /* visible only on About */
+    border: 3px solid #000;
+    background-color: #fff;
+    padding: 10px 20px 20px;
+    box-sizing: border-box;
+    border-radius: 10px;
+}
+
+#about-content1 h2 {
+    color: #161E54;
+    text-align: center;
+}
+
+#about-content1 ul {
+    margin: 15px auto 0;
+    max-width: 650px;
+    line-height: 1.7;
+}
+
+#about-content2 {
+    width: 60%;
+    margin: 50px auto 50px;
+    display: none;
+    border: 3px solid #000;
+    background-color: #fff;
+    padding: 10px 20px 20px;
+    box-sizing: border-box;
+    border-radius: 10px;
+}
+
+#about-content2 h2 {
+    color: #161E54;
+    text-align: center;
+}
+
+#about-content2 table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #fff;
+    color: #000;
+    border: 1px solid #000;
+}
+
+#about-content2 th,
+#about-content2 td {
+    padding: 12px 14px;
+    text-align: left;
+    border: 1px solid #000;
+}
+
+#about-content2 thead th {
+    font-weight: 700;
+    text-align: center;
+}
+
+#about-content2 tbody td {
+    font-weight: 400;
+}
+
+
+
 footer {
     margin-top: auto;
     text-align: center;
