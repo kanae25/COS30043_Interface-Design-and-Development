@@ -10,6 +10,7 @@ html {
 body {
     display: flex;
     flex-direction: column;
+    background-color: #f4f6f9;
 }
 
 #wai_logo {
@@ -21,6 +22,26 @@ body {
 h1 {
     text-align: center;
     color: #161E54;
+}
+
+#home-content {
+    width: 60%;
+    margin: 20px auto;
+    text-align: center;
+    display: none;
+}
+
+#home-content img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
+}
+
+#home-content p {
+    margin-top: 15px;
+    font-size: 1.05em;
+    line-height: 1.6;
 }
 
 footer {
