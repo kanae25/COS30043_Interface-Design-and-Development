@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', function () {
         if (!form || !heading) return;
 
         if (page === 'home') {
-            heading.textContent = 'Home';
+            heading.textContent = 'WAI - God of PCs';
             form.style.display = 'none';
         } else if (page === 'about') {
             heading.textContent = 'About';
