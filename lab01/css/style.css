@@ -33,7 +33,7 @@ h1 {
 }
 
 #home-content img {
-    max-width: 100%;
+    width: 70%;
     height: auto;
     border-radius: 10px;
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
@@ -128,7 +128,7 @@ form {
     display: grid;
     grid-template-columns: 130px 1fr;
     align-items: center;
-    column-gap: 12px;
+    column-gap: 8px;
     margin-bottom: 12px;
 }
 
@@ -165,7 +165,7 @@ form {
 .card-options {
     display: flex;
     gap: 20px;
-    margin: 0 0 12px 142px;
+    margin: 0 0 12px 138px;
 }
 
 .card-option {
