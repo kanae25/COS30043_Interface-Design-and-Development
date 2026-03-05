@@ -130,7 +130,49 @@ form {
 .input-title {
     font-size: 1.2em;
     font-weight: bold;
-    margin: 10px 0;
+    margin: 10px 0 14px;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 130px 1fr;
+    align-items: center;
+    column-gap: 12px;
+    margin-bottom: 12px;
+}
+
+.form-row label {
+    text-align: left;
+}
+
+.form-row input {
+    width: 50%;
+    max-width: 280px;
+    justify-self: start;
+    box-sizing: border-box;
+    padding: 8px;
+}
+
+.form-row textarea {
+    width: 70%;
+    box-sizing: border-box;
+    padding: 8px;
+    resize: none;
+}
+
+.form-row-textarea {
+    align-items: start;
+}
+
+.card-options {
+    display: flex;
+    gap: 20px;
+    margin: 0 0 12px 142px;
+}
+
+.form-actions {
+    margin: 16px 0 0;
+    text-align: center;
 }
 
 /* nav bar */
