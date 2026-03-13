@@ -11,6 +11,7 @@ html,
 body {
     min-height: 100%;
     margin: 0;
+    overscroll-behavior: none;
 }
 
 html {
@@ -20,6 +21,19 @@ html {
 body {
     background-color: var(--bg-page);
     color: var(--text-main);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+#app {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    flex: 1;
 }
 
 h1 {
@@ -149,4 +163,25 @@ select.form-select:focus {
     background-color: var(--bg-accent-soft);
     border: 1px solid var(--accent);
     color: var(--text-main);
+}
+
+.site-footer {
+    margin-top: auto;
+    background-color: #000;
+    color: #fff;
+    text-align: center;
+    padding: 0.9rem 1rem;
+}
+
+.table-scroll-note {
+    display: none;
+    color: #000;
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+@media (max-width: 443.98px) {
+    .table-scroll-note {
+        display: block;
+    }
 }
