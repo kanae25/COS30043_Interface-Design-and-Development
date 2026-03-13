@@ -102,6 +102,8 @@
                     </fieldset>
                 </div>
 
+                <h2 class="h4 mb-3 section-title">List of Available Events</h2>
+
                 <div class="table-responsive">
                     <table class="table table-bordered table-striped align-middle">
                         <thead class="table-light">
@@ -128,9 +130,9 @@
             </section>
 
             <section v-show="currentPage === 'registration'">
-                <h2 class="h4 mb-3">Registration Form</h2>
+                <h2 class="h4 mb-3 section-title registration-title">Registration Form</h2>
 
-                <div class="card p-3">
+                <div class="card p-3 registration-card">
                     <form @submit.prevent>
                         <div class="mb-3">
                             <label for="username" class="form-label">Username</label>
@@ -214,10 +216,12 @@
                     </form>
 
                     <div class="alert alert-secondary mt-2 mb-0" role="status">
-                        <strong>Summary:</strong>
-                        Username: {{ registration.username || '-' }},
-                        Selected category: {{ registration.category || '-' }},
-                        Selected event name: {{ registration.eventName || '-' }}
+                        <p class="text-center fw-bold mb-2">Summary</p>
+                        <ul class="mb-0">
+                            <li><strong>Username:</strong> {{ registration.username || '-' }}</li>
+                            <li><strong>Selected category:</strong> {{ registration.category || '-' }}</li>
+                            <li><strong>Selected event name:</strong> {{ registration.eventName || '-' }}</li>
+                        </ul>
                     </div>
                 </div>
             </section>
