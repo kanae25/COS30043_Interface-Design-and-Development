@@ -9,14 +9,14 @@ html {
 }
 
 body {
-    background-color: #F4DECB;
+    background-color: #fff;
     color: #111;
 }
 
 h1 {
     text-align: center;
     margin-bottom: 1.25rem;
-    color: #49274A;
+    color: #000;
 }
 
 /* Keep navbar structure and style similar to lab01, in black and white. */
@@ -25,10 +25,10 @@ h1 {
     margin: 20px auto 28px;
     text-align: center;
     font-size: 1.2rem;
-    border: 3px solid #49274A;
+    border: 3px solid #000;
     padding: 0;
     border-radius: 10px;
-    background-color: #F8EEE7;
+    background-color: #fff;
 }
 
 #main-nav ul {
@@ -49,16 +49,16 @@ h1 {
     padding: 10px 0;
     text-decoration: none;
     font-weight: 700;
-    color: #94618E;
-    background-color: #F8EEE7;
+    color: #000;
+    background-color: #fff;
     transition: background-color 0.2s ease, color 0.2s ease;
 }
 
 #main-nav a:hover,
 #main-nav a:focus,
 #main-nav a.active {
-    background-color: #94618E;
-    color: #F8EEE7;
+    background-color: #000;
+    color: #fff;
 }
 
 #main-nav li:first-child a {
@@ -73,4 +73,20 @@ h1 {
 
 .card {
     border: 1px solid #111;
+}
+
+.section-title {
+    color: #000;
+}
+
+.search-area {
+    border: 3px solid #000;
+    background-color: #fff;
+}
+
+input.form-control,
+select.form-select {
+    background-color: #fff;
+    border-color: #000;
+    color: #000;
 }
