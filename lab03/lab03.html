@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Event Portal</title>
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+        rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+    <div id="app">
+        <header class="py-4">
+            <h1 class="text-center">
+                {{ currentPage === 'events' ? 'Event Information' : 'Registration Form' }}
+            </h1>
+            <nav id="main-nav" aria-label="Main navigation">
+                <ul>
+                    <li>
+                        <a
+                            href="#"
+                            @click.prevent="currentPage = 'events'"
+                            :class="{ active: currentPage === 'events' }"
+                        >
+                            Events
+                        </a>
+                    </li>
+                    <li>
+                        <a
+                            href="#"
+                            @click.prevent="currentPage = 'registration'"
+                            :class="{ active: currentPage === 'registration' }"
+                        >
+                            Register
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+
+        <main class="container pb-5">
+            <section v-show="currentPage === 'events'">
+                <h2 class="h4 mb-3">Event Information</h2>
+
+                <div class="card p-3 mb-4">
+                    <div class="row g-3">
+                        <div class="col-md-4">
+                            <label for="search-id" class="form-label">Event ID</label>
+                            <input
+                                id="search-id"
+                                type="text"
+                                class="form-control"
+                                v-model.trim="searchId"
+                                placeholder="e.g. EVT10001"
+                            />
+                        </div>
+                        <div class="col-md-4">
+                            <label for="search-name" class="form-label">Event Name</label>
+                            <input
+                                id="search-name"
+                                type="text"
+                                class="form-control"
+                                v-model.trim="searchName"
+                                placeholder="e.g. AI"
+                            />
+                        </div>
+                        <div class="col-md-4">
+                            <label for="search-duration" class="form-label">Duration (Hours)</label>
+                            <input
+                                id="search-duration"
+                                type="text"
+                                class="form-control"
+                                v-model.trim="searchDuration"
+                                placeholder="e.g. 6"
+                            />
+                        </div>
+                    </div>
+
+                    <fieldset class="mt-3">
+                        <legend class="fs-6 mb-2">Category</legend>
+                        <div class="d-flex flex-wrap gap-3">
+                            <div
+                                class="form-check"
+                                v-for="category in categories"
+                                :key="category"
+                            >
+                                <input
+                                    class="form-check-input"
+                                    type="radio"
+                                    name="event-category-filter"
+                                    :id="'cat-' + category"
+                                    :value="category"
+                                    v-model="selectedCategoryFilter"
+                                />
+                                <label class="form-check-label" :for="'cat-' + category">
+                                    {{ category }}
+                                </label>
+                            </div>
+                        </div>
+                    </fieldset>
+                </div>
+
+                <div class="table-responsive">
+                    <table class="table table-bordered table-striped align-middle">
+                        <thead class="table-light">
+                            <tr>
+                                <th scope="col">Event ID</th>
+                                <th scope="col">Event Name</th>
+                                <th scope="col">Category</th>
+                                <th scope="col">Duration (Hours)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr v-for="event in filteredEvents" :key="event.eventid">
+                                <td>{{ event.eventid }}</td>
+                                <td>{{ event.eventname }}</td>
+                                <td>{{ event.category }}</td>
+                                <td>{{ event.durationhour }}</td>
+                            </tr>
+                            <tr v-if="filteredEvents.length === 0">
+                                <td colspan="4" class="text-center">No matching events found.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <section v-show="currentPage === 'registration'">
+                <h2 class="h4 mb-3">Registration Form</h2>
+
+                <div class="card p-3">
+                    <form @submit.prevent>
+                        <div class="mb-3">
+                            <label for="username" class="form-label">Username</label>
+                            <input
+                                id="username"
+                                type="text"
+                                class="form-control"
+                                v-model.trim="registration.username"
+                            />
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="password" class="form-label">Password</label>
+                            <input
+                                id="password"
+                                type="password"
+                                class="form-control"
+                                v-model="registration.password"
+                            />
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="confirm-password" class="form-label">Confirm Password</label>
+                            <div class="d-flex align-items-center gap-3">
+                                <input
+                                    id="confirm-password"
+                                    type="password"
+                                    class="form-control"
+                                    v-model="registration.confirmPassword"
+                                />
+                                <span
+                                    v-if="showPasswordMismatch"
+                                    class="text-danger text-nowrap fw-semibold"
+                                >
+                                    Passwords do not match
+                                </span>
+                            </div>
+                        </div>
+
+                        <fieldset class="mb-3">
+                            <legend class="fs-6">Event Category</legend>
+                            <div class="d-flex flex-wrap gap-3">
+                                <div
+                                    class="form-check"
+                                    v-for="category in eventOnlyCategories"
+                                    :key="'reg-' + category"
+                                >
+                                    <input
+                                        class="form-check-input"
+                                        type="radio"
+                                        name="registration-category"
+                                        :id="'reg-cat-' + category"
+                                        :value="category"
+                                        v-model="registration.category"
+                                    />
+                                    <label class="form-check-label" :for="'reg-cat-' + category">
+                                        {{ category }}
+                                    </label>
+                                </div>
+                            </div>
+                        </fieldset>
+
+                        <div class="mb-3">
+                            <label for="event-name" class="form-label">Event Name</label>
+                            <select
+                                id="event-name"
+                                class="form-select"
+                                v-model="registration.eventName"
+                                :disabled="!registration.category"
+                            >
+                                <option value="">Select an event</option>
+                                <option
+                                    v-for="event in registrationEventOptions"
+                                    :key="event.eventid"
+                                    :value="event.eventname"
+                                >
+                                    {{ event.eventname }}
+                                </option>
+                            </select>
+                        </div>
+                    </form>
+
+                    <div class="alert alert-secondary mt-2 mb-0" role="status">
+                        <strong>Summary:</strong>
+                        Username: {{ registration.username || '-' }},
+                        Selected category: {{ registration.category || '-' }},
+                        Selected event name: {{ registration.eventName || '-' }}
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="https://unpkg.com/vue@3/dist/vue.global.prod.js"></script>
+    <script src="js/script.js"></script>
+</body>
+</html>
