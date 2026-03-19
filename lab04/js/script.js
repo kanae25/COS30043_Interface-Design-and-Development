@@ -1,10 +1,15 @@
+const MIN_GUESS = 1;
+const MAX_GUESS = 100;
+const MAX_DIGITS = 3;
+const MAX_ATTEMPTS = 5;
+
 const app = Vue.createApp({
   data() {
     return {
       numberToGuess: 0,
       userGuess: null,
       message: "Start guessing",
-      attemptsLeft: 5,
+      attemptsLeft: MAX_ATTEMPTS,
       guesses: [],
       gameOver: false
     };
@@ -12,12 +17,12 @@ const app = Vue.createApp({
   computed: {
     guessSizeClass() {
       if (this.userGuess === null) {
-        return "guess-size-1";
+        return "";
       }
 
       const digits = String(this.userGuess).length;
 
-      if (digits >= 3) {
+      if (digits >= MAX_DIGITS) {
         return "guess-size-3";
       }
 
@@ -25,7 +30,7 @@ const app = Vue.createApp({
         return "guess-size-2";
       }
 
-      return "guess-size-1";
+      return "";
     }
   },
   methods: {
@@ -46,7 +51,7 @@ const app = Vue.createApp({
         return;
       }
 
-      if (/^[0-9]$/.test(event.key) && event.target.value.length >= 3) {
+      if (/^[0-9]$/.test(event.key) && event.target.value.length >= MAX_DIGITS) {
         event.preventDefault();
         return;
       }
@@ -58,28 +63,28 @@ const app = Vue.createApp({
     limitGuessLength(event) {
       let value = event.target.value.replace(/\D/g, "");
 
-      if (value.length > 3) {
-        value = value.slice(0, 3);
+      if (value.length > MAX_DIGITS) {
+        value = value.slice(0, MAX_DIGITS);
       }
 
       event.target.value = value;
       this.userGuess = value === "" ? null : Number(value);
     },
     generateRandomNumber() {
-      this.numberToGuess = Math.floor(Math.random() * 100) + 1;
+      this.numberToGuess = Math.floor(Math.random() * MAX_GUESS) + MIN_GUESS;
     },
     checkGuess() {
       if (this.gameOver) {
         return;
       }
 
-      if (this.userGuess === null || this.userGuess < 1 || this.userGuess > 100) {
+      if (this.userGuess === null || this.userGuess < MIN_GUESS || this.userGuess > MAX_GUESS) {
         this.message = "Please enter a number between 1 and 100";
         return;
       }
 
       this.guesses.push(this.userGuess);
-      this.attemptsLeft = this.attemptsLeft - 1;
+      this.attemptsLeft -= 1;
 
       if (this.userGuess < this.numberToGuess) {
         this.message = "Guess higher";
@@ -107,7 +112,7 @@ const app = Vue.createApp({
     startOver() {
       this.userGuess = null;
       this.message = "Start guessing";
-      this.attemptsLeft = 5;
+      this.attemptsLeft = MAX_ATTEMPTS;
       this.guesses = [];
       this.gameOver = false;
       this.generateRandomNumber();
