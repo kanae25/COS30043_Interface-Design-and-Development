@@ -130,14 +130,10 @@ button:disabled {
   filter: none;
 }
 
-.status {
-  padding: 0;
-  margin-bottom: 50px;
-}
-
 .message-box {
   max-width: 260px;
   margin: 0 auto;
+  margin-bottom: 50px;
   padding: 10px 14px;
   border: 1px solid #bfdbfe;
   border-radius: 8px;
@@ -153,5 +149,4 @@ button:disabled {
 
 .note {
   color: #4b5563;
-  margin-top: 8px;
 }
