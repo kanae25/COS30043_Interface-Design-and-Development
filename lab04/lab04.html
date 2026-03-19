@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Number Guessing Game</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div id="app" class="container">
+    <h1>Number Guessing Game</h1>
+    <p class="description">Guess a number between 1 and 100</p>
+
+    <div class="input-row">
+      <input
+        type="number"
+        min="1"
+        max="100"
+        placeholder="Enter your guess"
+        v-model.number="userGuess"
+        :disabled="gameOver"
+      >
+    </div>
+
+    <div class="button-row">
+      <button class="btn-check" @click="checkGuess" :disabled="gameOver">Check Guess</button>
+      <button class="btn-giveup" @click="giveUp" :disabled="gameOver">Give Up</button>
+      <button class="btn-startover" @click="startOver">Start Over</button>
+    </div>
+
+    <div class="status">
+      <div class="attempts">Attempts left: {{ attemptsLeft }}</div>
+      <div>{{ message }}</div>
+    </div>
+
+    <h3>Your guesses:</h3>
+    <ul class="guesses">
+      <li v-for="(guess, index) in guesses" :key="index">{{ guess }}</li>
+    </ul>
+    <p v-if="guesses.length === 0" class="note">No guesses yet.</p>
+  </div>
+
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  <script src="js/script.js"></script>
+</body>
+</html>
