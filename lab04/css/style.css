@@ -33,12 +33,33 @@ h1 {
 
 input[type="number"] {
   width: 180px;
-  height: 64px;
-  padding: 8px 10px;
+  height: 180px;
+  padding: 0;
   border: 1px solid #d1d5db;
   border-radius: 8px;
-  font-size: 30px;
+  font-size: 140px;
+  line-height: 1;
+  font-weight: bold;
   text-align: center;
+  appearance: textfield;
+}
+
+input[type="number"].guess-size-1 {
+  font-size: 140px;
+}
+
+input[type="number"].guess-size-2 {
+  font-size: 110px;
+}
+
+input[type="number"].guess-size-3 {
+  font-size: 84px;
+}
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }
 
 .button-row {
@@ -50,20 +71,55 @@ input[type="number"] {
 
 button {
   padding: 10px 14px;
-  border: none;
+  border: 1px solid transparent;
   border-radius: 8px;
   cursor: pointer;
   font-size: 15px;
-  color: #ffffff;
+  font-weight: 600;
+  transition: filter 0.15s ease;
 }
 
-.btn-check { background: #2563eb; }
-.btn-giveup { background: #d97706; }
-.btn-startover { background: #6b7280; }
+.btn-check {
+  background: #dcfce7;
+  border-color: #86efac;
+  color: #166534;
+}
+
+.btn-giveup {
+  background: #fee2e2;
+  border-color: #fca5a5;
+  color: #991b1b;
+}
+
+.btn-startover {
+  background: #f3f4f6;
+  border-color: #d1d5db;
+  color: #374151;
+}
+
+.btn-attempts {
+  background: #fef9c3;
+  border-color: #fde68a;
+  color: #854d0e;
+}
+
+button:hover {
+  filter: brightness(0.97);
+}
 
 button:disabled {
   opacity: 0.6;
   cursor: not-allowed;
+}
+
+.btn-attempts:disabled {
+  opacity: 1;
+  cursor: default;
+}
+
+.btn-attempts:hover,
+.btn-attempts:disabled:hover {
+  filter: none;
 }
 
 .status {
@@ -72,11 +128,6 @@ button:disabled {
   border-radius: 8px;
   padding: 12px;
   margin-bottom: 12px;
-}
-
-.attempts {
-  font-weight: bold;
-  margin-bottom: 8px;
 }
 
 .guesses {

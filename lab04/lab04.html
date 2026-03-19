@@ -16,8 +16,10 @@
         type="number"
         min="1"
         max="100"
-        placeholder="Enter your guess"
         v-model.number="userGuess"
+        @keydown="allowOnlyNumbers"
+        @input="limitGuessLength"
+        :class="guessSizeClass"
         :disabled="gameOver"
       >
     </div>
@@ -26,10 +28,10 @@
       <button class="btn-check" @click="checkGuess" :disabled="gameOver">Check Guess</button>
       <button class="btn-giveup" @click="giveUp" :disabled="gameOver">Give Up</button>
       <button class="btn-startover" @click="startOver">Start Over</button>
+      <button class="btn-attempts" disabled>Attempts left: {{ attemptsLeft }}</button>
     </div>
 
     <div class="status">
-      <div class="attempts">Attempts left: {{ attemptsLeft }}</div>
       <div>{{ message }}</div>
     </div>
 

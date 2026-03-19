@@ -9,7 +9,62 @@ const app = Vue.createApp({
       gameOver: false
     };
   },
+  computed: {
+    guessSizeClass() {
+      if (this.userGuess === null) {
+        return "guess-size-1";
+      }
+
+      const digits = String(this.userGuess).length;
+
+      if (digits >= 3) {
+        return "guess-size-3";
+      }
+
+      if (digits === 2) {
+        return "guess-size-2";
+      }
+
+      return "guess-size-1";
+    }
+  },
   methods: {
+    allowOnlyNumbers(event) {
+      const allowedKeys = [
+        "Backspace",
+        "Delete",
+        "ArrowLeft",
+        "ArrowRight",
+        "Tab"
+      ];
+
+      if (event.ctrlKey || event.metaKey) {
+        return;
+      }
+
+      if (allowedKeys.includes(event.key)) {
+        return;
+      }
+
+      if (/^[0-9]$/.test(event.key) && event.target.value.length >= 3) {
+        event.preventDefault();
+        return;
+      }
+
+      if (!/^[0-9]$/.test(event.key)) {
+        event.preventDefault();
+      }
+    },
+    limitGuessLength(event) {
+      let value = event.target.value.replace(/\D/g, "");
+
+      if (value.length > 3) {
+        value = value.slice(0, 3);
+      }
+
+      event.target.value = value;
+      this.userGuess = value === "" ? null : Number(value);
+    },
     generateRandomNumber() {
       this.numberToGuess = Math.floor(Math.random() * 100) + 1;
     },
