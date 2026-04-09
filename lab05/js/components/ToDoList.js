@@ -34,17 +34,29 @@ const ToDoList = {
     togglePriority(task) {
       task.highPriority = !task.highPriority;
     },
-    taskLabel(task) {
+    prioritySuffix(task) {
       if (task.highPriority) {
-        return task.text + ' (High Priority)';
+        return '(High Priority)';
       }
-      return task.text + ' (Low Priority)';
+      return '(Low Priority)';
     },
     priorityButtonText(task) {
       if (task.highPriority) {
         return 'Mark as Low Priority';
       }
       return 'Mark as High Priority';
+    },
+    priorityButtonClass(task) {
+      if (task.highPriority) {
+        return 'btn btn-sm btn-warning';
+      }
+      return 'btn btn-sm btn-success';
+    },
+    priorityTextClass(task) {
+      if (task.highPriority) {
+        return 'fw-bold text-warning';
+      }
+      return 'fw-bold text-success';
     }
   },
   template: `
@@ -65,12 +77,15 @@ const ToDoList = {
           :key="task.id"
           class="list-group-item d-flex flex-column flex-md-row align-items-md-center justify-content-between gap-2"
         >
-          <span>{{ taskLabel(task) }}</span>
-          <div class="btn-group">
-            <button type="button" class="btn btn-sm btn-outline-secondary" @click="togglePriority(task)">
+          <span>
+            {{ task.text }}
+            <span :class="priorityTextClass(task)">{{ prioritySuffix(task) }}</span>
+          </span>
+          <div class="d-flex gap-2">
+            <button type="button" :class="priorityButtonClass(task)" @click="togglePriority(task)">
               {{ priorityButtonText(task) }}
             </button>
-            <button type="button" class="btn btn-sm btn-outline-danger" @click="deleteTask(task.id)">Delete</button>
+            <button type="button" class="btn btn-sm btn-danger" @click="deleteTask(task.id)">Delete</button>
           </div>
         </li>
       </ul>
