@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lab 06 - Form Validation</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <h1>Lab 06: Form Validation</h1>
+
+  <form id="applicationForm" method="post" action="http://mercury.swin.edu.au/it000000/formtest.php" novalidate>
+    <fieldset>
+      <legend>Personal Information</legend>
+
+      <div class="form-row">
+        <label for="firstName">First Name *</label>
+        <input type="text" id="firstName" name="firstName" required>
+        <div class="field-error" id="firstNameError"></div>
+      </div>
+
+      <div class="form-row">
+        <label for="lastName">Last Name *</label>
+        <input type="text" id="lastName" name="lastName" required>
+        <div class="field-error" id="lastNameError"></div>
+      </div>
+
+      <div class="form-row">
+        <label for="dob">Date of Birth *</label>
+        <input type="date" id="dob" name="dob" required>
+        <div class="field-error" id="dobError"></div>
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <legend>Account Details</legend>
+
+      <div class="form-row">
+        <label for="username">Username *</label>
+        <input type="text" id="username" name="username" minlength="3" required>
+        <div class="field-error" id="usernameError"></div>
+      </div>
+
+      <div class="form-row">
+        <label for="password">Password *</label>
+        <input type="password" id="password" name="password" required>
+        <div class="field-error" id="passwordError"></div>
+      </div>
+
+      <div class="form-row">
+        <label for="confirmPassword">Confirm Password *</label>
+        <input type="password" id="confirmPassword" name="confirmPassword" required>
+        <div class="field-error" id="confirmPasswordError"></div>
+      </div>
+
+      <div class="form-row">
+        <label for="email">Email *</label>
+        <input type="email" id="email" name="email" required>
+        <div class="field-error" id="emailError"></div>
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <legend>Contact and Address</legend>
+
+      <div class="form-row">
+        <label for="streetAddress">Street Address (optional)</label>
+        <input type="text" id="streetAddress" name="streetAddress" maxlength="40">
+        <div class="field-error" id="streetAddressError"></div>
+      </div>
+
+      <div class="form-row">
+        <label for="suburb">Suburb (optional)</label>
+        <input type="text" id="suburb" name="suburb" maxlength="20">
+        <div class="field-error" id="suburbError"></div>
+      </div>
+
+      <div class="form-row">
+        <label for="postcode">Postcode *</label>
+        <input type="text" id="postcode" name="postcode" inputmode="numeric" required>
+        <div class="field-error" id="postcodeError"></div>
+      </div>
+
+      <div class="form-row">
+        <label for="mobile">Mobile Number *</label>
+        <input type="text" id="mobile" name="mobile" inputmode="numeric" required>
+        <div class="field-error" id="mobileError"></div>
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <legend>Preferences</legend>
+
+      <div class="form-row">
+        <label for="jobCategory">Preferred Job Category *</label>
+        <select id="jobCategory" name="jobCategory" required>
+          <option value="">-- Please Select --</option>
+          <option value="AI">AI</option>
+          <option value="Data Science">Data Science</option>
+          <option value="Web Development">Web Development</option>
+          <option value="Software Engineering">Software Engineering</option>
+          <option value="Cybersecurity">Cybersecurity</option>
+          <option value="Cloud Computing">Cloud Computing</option>
+          <option value="DevOps">DevOps</option>
+          <option value="Mobile App Development">Mobile App Development</option>
+          <option value="Game Development">Game Development</option>
+          <option value="UI/UX Design">UI/UX Design</option>
+          <option value="Business Analysis">Business Analysis</option>
+          <option value="QA Testing">QA Testing</option>
+        </select>
+        <div class="field-error" id="jobCategoryError"></div>
+      </div>
+    </fieldset>
+
+    <div class="button-group">
+      <button type="submit">Submit</button>
+      <button type="button" id="toggleTerms">Terms and Conditions</button>
+    </div>
+
+    <div id="formSummaryError"></div>
+  </form>
+
+  <div id="termsModalOverlay" class="modal-overlay" aria-hidden="true">
+    <div class="modal-content" role="dialog" aria-modal="true" aria-labelledby="termsTitle">
+      <h2 id="termsTitle">Terms and Conditions</h2>
+      <p>
+        By submitting this form, you confirm that all information provided is accurate and you agree to
+        the processing of your application data for recruitment purposes.
+      </p>
+      <button type="button" id="closeTermsModal">Close</button>
+    </div>
+  </div>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
