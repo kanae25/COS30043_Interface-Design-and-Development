@@ -1,0 +1,72 @@
+[
+  {
+    "id": 1,
+    "name": "Mount Fuji",
+    "country": "Japan",
+    "description": "An iconic volcanic mountain with scenic trails and seasonal beauty.",
+    "category": "Mountain"
+  },
+  {
+    "id": 2,
+    "name": "Halong Bay",
+    "country": "Vietnam",
+    "description": "Limestone islands rise from emerald waters, perfect for cruises.",
+    "category": "Ocean"
+  },
+  {
+    "id": 3,
+    "name": "Shibuya Crossing",
+    "country": "Japan",
+    "description": "A vibrant city hotspot known for neon lights and culture.",
+    "category": "City"
+  },
+  {
+    "id": 4,
+    "name": "Bondi Beach",
+    "country": "Australia",
+    "description": "A famous beach destination with surfing, cafes, and coastal views.",
+    "category": "Beach"
+  },
+  {
+    "id": 5,
+    "name": "Swiss Alps",
+    "country": "Switzerland",
+    "description": "Snowy peaks and alpine villages ideal for skiing and hiking.",
+    "category": "Mountain"
+  },
+  {
+    "id": 6,
+    "name": "Santorini",
+    "country": "Greece",
+    "description": "A cliffside island destination with white architecture and sea views.",
+    "category": "Ocean"
+  },
+  {
+    "id": 7,
+    "name": "Bali",
+    "country": "Indonesia",
+    "description": "Tropical beaches, rice terraces, and rich cultural heritage.",
+    "category": "Beach"
+  },
+  {
+    "id": 8,
+    "name": "New York City",
+    "country": "USA",
+    "description": "A dynamic metropolis filled with landmarks, food, and arts.",
+    "category": "City"
+  },
+  {
+    "id": 9,
+    "name": "Banff National Park",
+    "country": "Canada",
+    "description": "Turquoise lakes and mountain scenery in the heart of the Rockies.",
+    "category": "Mountain"
+  },
+  {
+    "id": 10,
+    "name": "Phuket",
+    "country": "Thailand",
+    "description": "A beach getaway known for island hopping and nightlife.",
+    "category": "Beach"
+  }
+]
