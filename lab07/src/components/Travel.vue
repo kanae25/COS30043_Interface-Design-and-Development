@@ -44,7 +44,7 @@ function onSearch() {
 </script>
 
 <template>
-  <section>
+  <section class="travel-section">
     <h2 class="mb-3">Travel Destinations</h2>
     <p class="text-muted mb-4">Search by destination name, country, description, or category.</p>
 
@@ -60,7 +60,7 @@ function onSearch() {
       </div>
     </div>
 
-    <div class="row g-3">
+    <div class="row g-3 travel-results">
       <div v-for="destination in paginatedDestinations" :key="destination.id" class="col-12 col-md-6">
         <article class="card h-100 shadow-sm">
           <div class="card-body">
@@ -76,7 +76,7 @@ function onSearch() {
       </div>
     </div>
 
-    <nav class="mt-4" aria-label="Destination pages">
+    <nav class="mt-0 travel-pagination" aria-label="Destination pages">
       <ul class="pagination flex-wrap">
         <li class="page-item" :class="{ disabled: currentPage === 1 }">
           <button class="page-link" type="button" @click="changePage(currentPage - 1)">Previous</button>

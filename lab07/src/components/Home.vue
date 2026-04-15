@@ -1,11 +1,31 @@
 <script setup>
+import { onMounted, onUnmounted, ref } from 'vue'
+import { Carousel } from 'bootstrap'
 import mountainView from '../assets/images/mountfuji-destination1.jpg'
 import oceanView from '../assets/images/halongbay-destination2.webp'
 import cityView from '../assets/images/shibuya-destination3.webp'
+
+const carouselEl = ref(null)
+let carouselInstance = null
+
+onMounted(() => {
+  if (carouselEl.value) {
+    carouselInstance = new Carousel(carouselEl.value, {
+      interval: 3000,
+      ride: 'carousel',
+      pause: false
+    })
+  }
+})
+
+onUnmounted(() => {
+  carouselInstance?.dispose()
+  carouselInstance = null
+})
 </script>
 
 <template>
-  <section class="row g-4 align-items-center">
+  <section class="row g-4 align-items-center justify-content-center home-section">
     <div class="col-12 col-lg-5">
       <h1 class="display-6 fw-bold">Welcome to Travel Explorer</h1>
       <p class="lead mt-3">
@@ -15,7 +35,7 @@ import cityView from '../assets/images/shibuya-destination3.webp'
     </div>
 
     <div class="col-12 col-lg-7">
-      <div id="destinationCarousel" class="carousel slide shadow-sm rounded overflow-hidden" data-bs-ride="carousel">
+      <div ref="carouselEl" id="destinationCarousel" class="carousel slide shadow-sm rounded overflow-hidden">
         <div class="carousel-indicators">
           <button type="button" data-bs-target="#destinationCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
           <button type="button" data-bs-target="#destinationCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>

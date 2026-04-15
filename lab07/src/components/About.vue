@@ -18,7 +18,7 @@ const selectedImage = computed(() => {
 </script>
 
 <template>
-  <section class="row g-4">
+  <section class="row g-4 justify-content-center about-section">
     <div class="col-12 col-lg-6">
       <h2>About This Web App</h2>
       <p>
@@ -42,7 +42,7 @@ const selectedImage = computed(() => {
     </div>
 
     <div class="col-12 col-lg-6">
-      <div class="card p-3 shadow-sm h-100">
+      <div class="card p-3 shadow-sm">
         <h3 class="h5">Choose Your Preferred View</h3>
 
         <div class="form-check mt-2">
