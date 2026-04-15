@@ -20,11 +20,8 @@ const selectedImage = computed(() => {
 <template>
   <section class="row g-4 justify-content-center about-section">
     <div class="col-12 col-lg-6">
-      <h2>About This Web App</h2>
-      <p>
-        Travel Explorer is a Vue 3 application that helps users browse and search destinations while
-        demonstrating routing, local JSON data, and responsive page layouts.
-      </p>
+      <h2>{{ welcomeMessage }}</h2>
+      <p>Please enter your name and choose your preferred view.</p>
 
       <div class="card p-3 shadow-sm">
         <div class="mb-3">
@@ -37,7 +34,6 @@ const selectedImage = computed(() => {
           <input id="lastName" v-model="lastName" type="text" class="form-control" placeholder="Enter last name" />
         </div>
 
-        <p class="fw-semibold mb-0">{{ welcomeMessage }}</p>
       </div>
     </div>
 

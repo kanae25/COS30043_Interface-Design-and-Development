@@ -45,21 +45,12 @@ onUnmounted(() => {
         <div class="carousel-inner">
           <div class="carousel-item active">
             <img :src="mountainView" class="d-block w-100 carousel-img" alt="Mountain destination" />
-            <div class="carousel-caption d-none d-md-block">
-              <h5>Mountain Adventure</h5>
-            </div>
           </div>
           <div class="carousel-item">
             <img :src="oceanView" class="d-block w-100 carousel-img" alt="Ocean destination" />
-            <div class="carousel-caption d-none d-md-block">
-              <h5>Ocean Getaway</h5>
-            </div>
           </div>
           <div class="carousel-item">
             <img :src="cityView" class="d-block w-100 carousel-img" alt="City destination" />
-            <div class="carousel-caption d-none d-md-block">
-              <h5>City Discovery</h5>
-            </div>
           </div>
         </div>
 

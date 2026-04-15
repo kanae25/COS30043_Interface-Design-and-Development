@@ -43,6 +43,11 @@ body {
 }
 
 @media (max-width: 767px) {
+  .navbar-nav .nav-item + .nav-item .nav-link::before {
+    content: none;
+    margin-right: 0;
+  }
+
   .carousel-img {
     height: 260px;
   }
