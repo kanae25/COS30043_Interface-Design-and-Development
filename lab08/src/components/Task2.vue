@@ -29,6 +29,7 @@
 
 <script setup>
 import { onMounted, ref } from "vue";
+import unitsUrl from "../assets/units.json?url";
 
 const units = ref([]);
 const loading = ref(true);
@@ -36,7 +37,7 @@ const error = ref("");
 
 onMounted(async () => {
   try {
-    const response = await fetch("/src/assets/units.json");
+    const response = await fetch(unitsUrl);
 
     if (!response.ok) {
       throw new Error(`Request failed with status ${response.status}`);
