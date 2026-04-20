@@ -1,4 +1,4 @@
-my-vite-project/
+lab08/
 │
 ├── src/
 │   ├── assets/
