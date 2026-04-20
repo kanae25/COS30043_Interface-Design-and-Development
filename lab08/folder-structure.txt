@@ -1,0 +1,22 @@
+my-vite-project/
+│
+├── src/
+│   ├── assets/
+│   │   ├── css/
+│   │   │   └── style.css
+│   │   └── units.json
+│   │
+│   ├── components/
+│   │   ├── Task1.vue
+│   │   └── Task2.vue
+│   │
+│   ├── js/
+│   │   ├── main.js
+│   │   └── router.js
+│   │
+│   └── App.vue
+│
+├── index.html
+├── package.json
+├── package-lock.json
+└── vite.config.js
