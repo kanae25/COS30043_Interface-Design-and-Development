@@ -1,4 +1,4 @@
-lab09-pagination/
+lab09/
 │
 ├── index.html
 ├── package.json
